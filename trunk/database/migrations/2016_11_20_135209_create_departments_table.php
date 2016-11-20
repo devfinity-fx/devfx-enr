@@ -14,13 +14,12 @@ class CreateDepartmentsTable extends Migration
     public function up()
     {
         Schema::create('Departments', function (Blueprint $table) {
-            $table->increments('ID')->primary();
+            $table->increments('ID');
             $table->integer('CollegeID')->unsigned();
             $table->string('ShortName',20);
             $table->string('Description');
             $table->tinyInteger('Status')->default(1);
             $table->timestamps();
-
 
             $table->foreign('CollegeID')
                 ->references('ID')->on('Colleges')

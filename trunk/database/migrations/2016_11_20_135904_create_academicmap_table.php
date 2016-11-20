@@ -14,7 +14,7 @@ class CreateAcademicmapTable extends Migration
     public function up()
     {
         Schema::create('AcademicMap', function (Blueprint $table) {
-            $table->increments('ID')->primary();
+            $table->increments('ID');
             $table->enum('Semester',['1','2','S'])->default('1');
             $table->string('AcademicYear',10);
             $table->integer('CourseID')->unsigned();

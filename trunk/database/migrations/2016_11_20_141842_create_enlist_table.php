@@ -14,7 +14,7 @@ class CreateEnlistTable extends Migration
     public function up()
     {
         Schema::create('Enlistment', function (Blueprint $table) {
-            $table->increments('ID')->primary();
+            $table->increments('ID');
             $table->string('StudentNo',30);
             $table->integer('SectionID')->unsigned();
             $table->integer('MatrixID')->unsigned();
@@ -22,7 +22,6 @@ class CreateEnlistTable extends Migration
             $table->dateTime('DateEnlisted');
             $table->string('EnlistedBy');
             $table->timestamps();
-
 
             $table->foreign('StudentNo')
                 ->references('StudentNo')->on('Students')

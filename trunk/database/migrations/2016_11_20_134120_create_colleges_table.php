@@ -14,7 +14,7 @@ class CreateCollegesTable extends Migration
     public function up()
     {
         Schema::create('Colleges', function (Blueprint $table) {
-            $table->increments('ID')->primary();
+            $table->increments('ID');
             $table->string('ShortName',20);
             $table->string('Description');
             $table->tinyInteger('Status');

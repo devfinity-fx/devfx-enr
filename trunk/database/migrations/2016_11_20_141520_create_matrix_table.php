@@ -24,7 +24,7 @@ class CreateMatrixTable extends Migration
                 ->onDelete('cascade');
 
             $table->foreign('BreakdownID')
-                ->references('ID')->on('Breakdown')
+                ->references('ID')->on('Breakdowns')
                 ->onDelete('cascade');
         });
     }

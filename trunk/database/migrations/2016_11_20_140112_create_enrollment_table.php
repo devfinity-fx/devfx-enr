@@ -14,14 +14,13 @@ class CreateEnrollmentTable extends Migration
     public function up()
     {
         Schema::create('Enrollment', function (Blueprint $table) {
-            $table->increments('ID')->primary();
+            $table->increments('ID');
             $table->string('StudentNo',30);
             $table->integer('CourseID')->unsigned();
             $table->enum('Type',['R','T'])->default('R');
             $table->dateTime('DateEnrolled');
             $table->string('RegisteredBy',30);
             $table->timestamps();
-
 
             $table->foreign('StudentNo')
                 ->references('StudentNo')->on('Students')
