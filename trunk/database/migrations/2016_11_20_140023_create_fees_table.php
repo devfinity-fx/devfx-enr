@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBreakdownsTable extends Migration
+class CreateFeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateBreakdownsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Breakdowns', function (Blueprint $table) {
-            $table->increments('ID');
-            $table->integer('AcademicMapID')->unsigned();
-            $table->string('Description');
+        Schema::create('Fees', function (Blueprint $table) {
+            $table->increments('id');
+            $table->smallInteger('GradeLevel');
             $table->decimal('Amount',8,2);
             $table->timestamps();
-
-            $table->foreign('AcademicMapID')
-                ->references('ID')->on('AcademicMap')
-                ->onDelete('cascade');
         });
     }
 
@@ -33,6 +28,6 @@ class CreateBreakdownsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Breakdowns');
+        Schema::dropIfExists('Fees');
     }
 }

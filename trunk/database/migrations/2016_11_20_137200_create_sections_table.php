@@ -17,12 +17,9 @@ class CreateSectionsTable extends Migration
             $table->increments('ID');
             $table->string('ShortName',30);
             $table->string('Description');
-            $table->integer('AcademicMapID')->unsigned();
+            $table->tinyInteger('GradeLevel');
+            $table->smallInteger('AcademicYear');
             $table->timestamps();
-
-            $table->foreign('AcademicMapID')
-                ->references('ID')->on('AcademicMap')
-                ->onDelete('cascade');
         });
     }
 

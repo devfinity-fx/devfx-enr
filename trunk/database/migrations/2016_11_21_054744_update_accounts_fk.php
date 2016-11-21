@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubjectsTable extends Migration
+class UpdateAccountsFk extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Subjects', function (Blueprint $table) {
-            $table->increments('ID');
-            $table->string('SubjectCode',15)->unique();
-            $table->string('Description',30);
-            $table->decimal('Units',8,2);
-            $table->timestamps();
+        Schema::table('Accounts', function (Blueprint $table) {
+            $table->foreign('CreatedBy')
+                ->references('Username')->on('Accounts')
+                ->onDelete('cascade');
         });
     }
 
@@ -29,6 +27,8 @@ class CreateSubjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Subjects');
+        Schema::table('Accounts', function (Blueprint $table) {
+            //
+        });
     }
 }

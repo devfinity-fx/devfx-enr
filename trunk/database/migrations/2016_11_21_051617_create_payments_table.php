@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubjectsTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Subjects', function (Blueprint $table) {
+        Schema::create('Payments', function (Blueprint $table) {
             $table->increments('ID');
-            $table->string('SubjectCode',15)->unique();
-            $table->string('Description',30);
-            $table->decimal('Units',8,2);
+            $table->string('TransactionID',30);
+            $table->integer('ReceiptNo');
+            $table->integer('PayableID')->unsigned();
+            $table->enum('Type',['C','O','B']);
+            $table->string('Attachments' );
+            $table->date("DatePaid");
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateSubjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Subjects');
+        Schema::dropIfExists('Payments');
     }
 }

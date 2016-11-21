@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubjectsTable extends Migration
+class CreateSchedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Subjects', function (Blueprint $table) {
-            $table->increments('ID');
-            $table->string('SubjectCode',15)->unique();
-            $table->string('Description',30);
-            $table->decimal('Units',8,2);
+        Schema::create('Schedules', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('SectionID');
+            $table->integer('RoomID');
+            $table->string('IdentificationNo');
+            $table->time('StartTime');
+            $table->time('EndTime');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateSubjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Subjects');
+        Schema::dropIfExists('Schedules');
     }
 }

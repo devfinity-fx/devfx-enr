@@ -16,18 +16,20 @@ class CreateEnrollmentTable extends Migration
         Schema::create('Enrollment', function (Blueprint $table) {
             $table->increments('ID');
             $table->string('StudentNo',30);
-            $table->integer('CourseID')->unsigned();
-            $table->enum('Type',['R','T'])->default('R');
+            $table->integer('SectionID')->unsigned();
+            $table->enum('Status',['E','T','G','D'])->default('E');
+            $table->tinyInteger('GradeLevel');
+            $table->smallInteger('AcademicYear');
             $table->dateTime('DateEnrolled');
             $table->string('RegisteredBy',30);
             $table->timestamps();
 
             $table->foreign('StudentNo')
-                ->references('StudentNo')->on('Students')
+                ->references('IdentificationNo')->on('Accounts')
                 ->onDelete('cascade');
 
-            $table->foreign('CourseID')
-                ->references('ID')->on('Courses')
+            $table->foreign('SectionID')
+                ->references('ID')->on('Sections')
                 ->onDelete('cascade');
 
             $table->foreign('RegisteredBy')
