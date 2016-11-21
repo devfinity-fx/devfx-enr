@@ -1,4 +1,4 @@
-# DevFINITY-FX Enrollment System
+# Enrollment System
 Final Repo for Enrollment Project
 
 by ajamiscosa/eraazana
