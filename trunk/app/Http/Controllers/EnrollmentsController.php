@@ -13,7 +13,7 @@ class EnrollmentsController extends Controller
      */
     public function index()
     {
-        //
+        return view('enrollment.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class EnrollmentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('enrollment.new');
     }
 
     /**
@@ -34,7 +34,14 @@ class EnrollmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $method = $request->method();
+
+        if ($request->isMethod('post')) {
+            $input = $request->all();
+            echo "<pre>";
+            var_dump($input);
+            echo "</pre>";
+        }
     }
 
     /**

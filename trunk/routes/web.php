@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
+Route::get('/enrollment', 'EnrollmentsController@index');
+Route::get('/enrollment/new', 'EnrollmentsController@create');
+Route::post('/enrollment/submit', 'EnrollmentsController@store');
+
 
 
 Route::get('users', ['uses' => 'UsersController@index']);
