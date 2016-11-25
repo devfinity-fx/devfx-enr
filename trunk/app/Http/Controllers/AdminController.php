@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Account;
 use Illuminate\Http\Request;
 
-class EnrollmentsController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class EnrollmentsController extends Controller
      */
     public function index()
     {
-        return view('enrollment.index');
+        return view('admin.index');
     }
 
     /**
@@ -24,7 +23,7 @@ class EnrollmentsController extends Controller
      */
     public function create()
     {
-        return view('enrollment.new');
+        //
     }
 
     /**
@@ -35,15 +34,7 @@ class EnrollmentsController extends Controller
      */
     public function store(Request $request)
     {
-        $method = $request->method();
-
-        if ($request->isMethod('post')) {
-            $input = $request->all();
-            $student = new Account($input);
-            $student->AccountLevel = "S";
-            $student->CreatedBy = "1";
-            $student->save();
-        }
+        //
     }
 
     /**

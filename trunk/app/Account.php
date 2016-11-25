@@ -4,9 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Authenticatable
+class Account extends Model
 {
-    use Notifiable;
     /**
      * The table associated with the model.
      *

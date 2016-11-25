@@ -18,6 +18,7 @@ Route::post('/enrollment/submit', 'EnrollmentsController@store');
 
 
 
-Route::get('users', ['uses' => 'UsersController@index']);
-Route::get('users/create',  ['uses' => 'UsersController@create']);
-Route::post('users', ['uses' => 'UsersController@store']);
+Route::get('/admin/', 'UsersController@index');
+Route::get('/admin/users/', 'UsersController@index');
+Route::get('/admin/users/create', 'UsersController@create');
+Route::post('/admin/users/store', ['uses' => 'UsersController@store']);

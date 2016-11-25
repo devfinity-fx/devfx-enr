@@ -15,7 +15,7 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('Accounts', function (Blueprint $table) {
             $table->increments('ID');
-            $table->string('IdentificationNo',30)->unique();
+            $table->string('IDNo',30)->unique();
             $table->string('LastName',30);
             $table->string('FirstName',30);
             $table->string('MiddleName',30)->nullable();

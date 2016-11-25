@@ -25,7 +25,7 @@ class CreateEnrollmentTable extends Migration
             $table->timestamps();
 
             $table->foreign('StudentNo')
-                ->references('IdentificationNo')->on('Accounts')
+                ->references('IDNo')->on('Accounts')
                 ->onDelete('cascade');
 
             $table->foreign('SectionID')
